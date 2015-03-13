@@ -1,16 +1,25 @@
 module.exports = function(config) {
+  var preProcessors = ['webpack'],
+    reporters = ['spec'];
+  if (process.env['IDE_COVERAGE']) {
+    preProcessors.push('coverage');
+  } else {
+    reporters.push('coverage');
+  }
+
   config.set(
     {
       basePath: './',
       frameworks: ['jasmine'],
       browsers: ['PhantomJS'],
-      reporters: ['spec', 'coverage'],
+      reporters: reporters,
       colors: true,
       files: [
-        'specs/**/*.spec.js'
+        './node_modules/phantomjs-polyfill/bind-polyfill.js',
+        './src/all-specs.js'
       ],
       preprocessors: {
-        'specs/**/*.spec.js': ['webpack']
+        './src/all-specs.js': preProcessors
       },
       coverageReporter: {
         dir: 'coverage',

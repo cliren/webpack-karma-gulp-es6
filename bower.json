@@ -1,8 +1,7 @@
 {
   "name": "sample-app",
   "version": "1.0.0",
-  "authors": [
-  ],
+  "authors": [],
   "description": "About project...",
   "main": "main.js",
   "license": "MIT",
@@ -14,7 +13,9 @@
     "test",
     "tests"
   ],
-  "devDependencies": {},
+  "devDependencies": {
+    "select2": "~3.5.2"
+  },
   "dependencies": {
     "lodash": "~3.3.0",
     "jquery": "~2.1.3",

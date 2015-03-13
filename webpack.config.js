@@ -8,6 +8,7 @@ module.exports = {
   output: {
     path: __dirname + "/dist",
     filename: 'main.js',
+    library: 'MyLibrary',
     libraryTarget: 'umd'
   },
   module: {
@@ -17,12 +18,7 @@ module.exports = {
       {test: /\.handlebars$/, loader: 'handlebars-loader'},
       {test: /\.less$/, loader: "style!css!less"},
       {test: /\.css$/, loader: "style!css"},
-      {test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192'}, // inline base64 URLs for <=8k images, direct URLs for the rest
-      {test: /\.woff$/, loader: "url-loader?limit=10000&minetype=application/font-woff"},
-      {test: /\.woff2$/, loader: "url-loader?limit=10000&minetype=application/font-woff"},
-      {test: /\.ttf$/, loader: "file-loader"},
-      {test: /\.eot$/, loader: "file-loader"},
-      {test: /\.svg$/, loader: "file-loader"}
+      {test: /\.(otf|eot|png|gif|svg|ttf|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader"}
     ],
     noParse: []
   },
@@ -39,7 +35,7 @@ module.exports = {
       '.css']
   },
   plugins: [
-    new webpack.optimize.DedupePlugin(),
+    //new webpack.optimize.DedupePlugin(),
     new webpack.ProvidePlugin({
       $: "jquery",
       _: "lodash"

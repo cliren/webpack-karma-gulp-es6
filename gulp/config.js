@@ -3,7 +3,6 @@ var dest = './dist',
   src = './src',
   karmaPath = path.join(__dirname, '../karma.conf.js');
 
-console.log(__dirname);
 module.exports = {
   browserSync: {
     server: {
@@ -20,5 +19,7 @@ module.exports = {
   },
   karma: karmaPath,
   templates: src + "/**/*.handlebars",
-  js: src + "/**/*.js"
+  js: src + "/**/*.js",
+  src: src,
+  dest: dest
 };

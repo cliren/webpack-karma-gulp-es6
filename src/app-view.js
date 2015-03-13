@@ -1,17 +1,17 @@
 var template = require('./app.handlebars');
+import BaseView from './base-view';
 
-class AppView {
+class AppView extends BaseView {
 
   constructor(options) {
-    _.extend(this, options);
-
+    super(options)
   }
+
+  render() {
+    this.el.append(template());
+    this.installDefaultComponents();
+  }
+
 }
-
-var prototype = AppView.prototype;
-
-prototype.render = function() {
-  this.el.append(template());
-};
 
 export {AppView};
