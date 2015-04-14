@@ -34,6 +34,7 @@ module.exports = {
       '.js',
       '.css']
   },
+  bail:true,
   plugins: [
     //new webpack.optimize.DedupePlugin(),
     new webpack.ProvidePlugin({
